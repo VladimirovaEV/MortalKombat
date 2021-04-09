@@ -1,6 +1,4 @@
-const $arenas = document.querySelector('.arenas');
 const player1 = {
-  player: 1,
   name: 'Scorpion',
   hp: 100,
   img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
@@ -10,7 +8,6 @@ const player1 = {
   }
 };
 const player2 = {
-  player: 2,
   name: 'Sonya',
   hp: 80,
   img: 'http://reactmarathon-api.herokuapp.com/assets/sonya.gif',
@@ -19,35 +16,35 @@ const player2 = {
     console.log(player2.name + ' Fight...');
   }
 };
-function createElement(tag, className) {
-  const $tag = document.createElement(tag);
-  if(className) {
-    $tag.classList.add(className);
-  }
-  return $tag;
-}
 
-function createPlayer(pers) {
-  const $player1 = createElement('div', 'player'+ pers.player);
-  const $progressbar = createElement('div','progressbar');
+function createPlayer(player, pers) {
+  const $player1 = document.createElement('div');
+  $player1.classList.add(player);
+
+  const $progressbar = document.createElement('div');
+  $progressbar.classList.add('progressbar');
   $player1.appendChild($progressbar);
 
-  const $character = createElement('div', 'character');
+  const $character = document.createElement('div');
+  $character.classList.add('character');
   $player1.appendChild($character);
 
-  const $life = createElement('div', 'life');
+  const $life = document.createElement('div');
+  $life.classList.add('life');
   $life.style.width = pers.hp +'%';
   $progressbar.appendChild($life);
 
-  const $name = createElement('div', 'name');
+  const $name = document.createElement('div');
+  $name.classList.add('name');
   $name.innerText = pers.name;
   $progressbar.appendChild($name);
 
-  const $img = createElement('img');
+  const $img = document.createElement('img');
   $img.src = pers.img;
   $character.appendChild($img);
 
-  return $player1;
+  const $arenas = document.querySelector('.arenas');
+  $arenas.appendChild($player1);
 }
-$arenas.appendChild(createPlayer(player1));
-$arenas.appendChild(createPlayer(player2));
+createPlayer('player1', player1);
+createPlayer('player2', player2);
