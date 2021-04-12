@@ -50,17 +50,22 @@ function createPlayer(player) {
 
   return $player1;
 }
-function changeHP(player) {
-  const $playerLife = document.querySelector('.player' + player.player +' .life' );
-  player.hp -= getRandom(1, 20);
-  $playerLife.style.width = player.hp + '%';
-  if(player.hp <= 0) {
+function changeHP($player) {
+  const $playerLife = document.querySelector('.player' + $player.player +' .life' );
+  $player.hp -= getRandom(1, 20);
+  console.log($player.name + $player.hp);
+    $playerLife.style.width = $player.hp + '%';
+  if($player.hp <= 0) {
     $randomButton.disabled = true;
-    $playerLife.style.width = 0 + '%';
-    player.hp = 0;
-   $arenas.appendChild(playerLose(player.name));
+    //  $player.hp = 0;
+        //$arenas.appendChild(playerLose($player.name))
+        if(player1.hp >= 0) {
+          $arenas.appendChild(playerWin(player1.name))
+        } else if(player2.hp >= 0) {
+          $arenas.appendChild(playerWin(player2.name))
+        }
+    }
  }
-}
 function getRandom(min, max) {
 		return Math.ceil(Math.random() * (max - min + 1)) + min;
 	}
@@ -68,6 +73,11 @@ function playerLose(name) {
   const $loseTitle = createElement('div', 'loseTitle');
   $loseTitle.innerText = name + ' lose';
   return $loseTitle;
+}
+function playerWin(name) {
+  const $winTitle = createElement('div', 'winTitle');
+  $winTitle.innerText = name + ' wins';
+  return $winTitle;
 }
 $randomButton.addEventListener('click', function() {
 changeHP(player1);
