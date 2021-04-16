@@ -13,16 +13,10 @@ const player1 = {
   hp: 100,
   img: 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
   weapon: 'Kunai',
-<<<<<<< Updated upstream
-  attack: function() {
-    console.log(this.name + ' Fight...');
-  }
-=======
   changeHP,
   elHP,
   renderHP,
   attack,
->>>>>>> Stashed changes
 };
 const player2 = {
   player: 2,
@@ -30,16 +24,10 @@ const player2 = {
   hp: 100,
   img: 'http://reactmarathon-api.herokuapp.com/assets/sonya.gif',
   weapon: 'Kunai',
-<<<<<<< Updated upstream
-  attack: function() {
-    console.log(player2.name + ' Fight...');
-  }
-=======
   changeHP,
   elHP,
   renderHP,
   attack,
->>>>>>> Stashed changes
 };
 function attack() {
   console.log(player2.name + ' Fight...');
@@ -74,52 +62,31 @@ function createPlayer(player) {
 
   return $player1;
 }
-<<<<<<< Updated upstream
-function changeHP($player) {
-  const $playerLife = document.querySelector('.player' + $player.player +' .life' );
-  $player.hp -= getRandom(1, 20);
-  console.log($player.name + $player.hp);
-    $playerLife.style.width = $player.hp + '%';
-  if($player.hp <= 0) {
-    $randomButton.disabled = true;
-    //  $player.hp = 0;
-        //$arenas.appendChild(playerLose($player.name))
-        if(player1.hp >= 0) {
-          $arenas.appendChild(playerWin(player1.name))
-        } else if(player2.hp >= 0) {
-          $arenas.appendChild(playerWin(player2.name))
-        }
-    }
-=======
 function changeHP(num) {
   this.hp -= num;
     if(this.hp <= 0) {
     this.hp = 0;
   }
   return this.hp;
->>>>>>> Stashed changes
  }
-function getRandom(min, max) {
-		return Math.ceil(Math.random() * (max - min + 1)) + min;
-	}
-function playerLose(name) {
-  const $loseTitle = createElement('div', 'loseTitle');
-  $loseTitle.innerText = name + ' lose';
-  return $loseTitle;
-}
+ function elHP() {
+   const $playerLife = document.querySelector('.player' + this.player +' .life' );
+   return $playerLife;
+ }
+ function renderHP() {
+     this.elHP().style.width = this.hp + '%';
+     return this.elHP();
+ }
+
+ function getRandom(num) {
+ 		return Math.ceil(Math.random() * num);
+ 	}
+
 function playerWin(name) {
   const $winTitle = createElement('div', 'winTitle');
   $winTitle.innerText = name + ' wins';
   return $winTitle;
 }
-<<<<<<< Updated upstream
-$randomButton.addEventListener('click', function() {
-changeHP(player1);
-changeHP(player2);
-})
-$arenas.appendChild(createPlayer(player1));
-$arenas.appendChild(createPlayer(player2));
-=======
 /*$randomButton.addEventListener('click', function() {
 player1.changeHP(20);
 player2.changeHP(20);
@@ -163,7 +130,6 @@ function enemyAttack() {
 $formFight.addEventListener('submit', function(e) {
   e.preventDefault();
   const enemy = enemyAttack();
-
   const attack = {};
   for(let item of $formFight) {
     if(item.checked && item.name === 'hit') {
@@ -175,8 +141,18 @@ $formFight.addEventListener('submit', function(e) {
     }
     item.checked = false;
   }
-  player1.changeHP(enemy.value);
-  player2.changeHP(attack.value);
+  console.log('enemy: ', enemy);
+  console.log('attack: ', attack);
+  console.log(player1.hp);
+  console.log(player2.hp);
+  //player1.changeHP(enemy.value);
+  //player2.changeHP(attack.value);
+  if(enemy.hit != attack.defence) {
+    player1.changeHP(enemy.value);
+  }
+  if(attack.hit != enemy.defence) {
+    player2.changeHP(attack.value);
+  }
   player1.renderHP();
   player2.renderHP();
   if(player1.hp === 0 || player2.hp === 0) {
@@ -191,4 +167,3 @@ $formFight.addEventListener('submit', function(e) {
     $arenas.appendChild(playerWin());
   }
 })
->>>>>>> Stashed changes

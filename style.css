@@ -256,9 +256,6 @@ body {
     top: 1px;
 }
 
-<<<<<<< Updated upstream
-.loseTitle {
-=======
 .button:disabled {
     opacity: .9;
     cursor: not-allowed;
@@ -277,7 +274,6 @@ body {
 }
 
 .winTitle {
->>>>>>> Stashed changes
     position: absolute;
     top: 22%;
     left: 50%;
@@ -289,24 +285,17 @@ body {
     font-family: "Mortal Kombat 3";
     text-shadow: 2px 2px 2px #cd0e03;
 }
-<<<<<<< Updated upstream
-.winTitle {
-    position: absolute;
-    top: 25%;
-=======
 
 .reloadWrap {
     position: absolute;
     top: 54px;
     z-index: 1000;
->>>>>>> Stashed changes
     left: 50%;
-    font-size: 36px;
     transform: translate(-50%, 0%);
-    text-transform: uppercase;
-    z-index: 1000;
-    color: white;
-    font-family: "Mortal Kombat 3";
+}
+
+.reloadWrap .button {
+    margin-top: 0;
 }
 
 form:invalid button[class=button] {
