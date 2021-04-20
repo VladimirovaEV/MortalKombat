@@ -2,8 +2,8 @@ const $arenas = document.querySelector('.arenas');
 const $randomButton = document.querySelector('.button');
 const $formFight = document.querySelector('.control');
 const $chat = document.querySelector('.chat');
-const date = new Date();
-const gameDate = `${addZero(date.getHours())}:${addZero(date.getMinutes())}:${addZero(date.getSeconds())}`;
+//const date = new Date();
+//const gameDate = `${addZero(date.getHours())}:${addZero(date.getMinutes())}:${addZero(date.getSeconds())}`;
 
 const HIT = {
   head: 30,
@@ -194,6 +194,8 @@ function showResult() {
 }
 
 function generateLogs(type, player1, player2, damage) {
+  const date = new Date();
+  const gameDate = `${addZero(date.getHours())}:${addZero(date.getMinutes())}:${addZero(date.getSeconds())}`;
   let text;
   let el;
   switch (type) {
@@ -217,6 +219,8 @@ function generateLogs(type, player1, player2, damage) {
     text = logs[type][getRandom(logs[type].length-1)].replace('[playerWins]', player1.name).replace('[playerLose]', player2.name);
     el = `<p>${text}</p>`;
     break;
+    default:
+    alert('Что-то пошло не так...');
   }
   //const el = `<p>${gameDate} ${text}</p>`;
   $chat.insertAdjacentHTML('afterbegin', el);
