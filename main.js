@@ -59,14 +59,14 @@ $formFight.addEventListener('submit', function(e) {
     player1.renderHP();
     generateLogs('hit', player2, player1, enemy.value);
 } else {
-  generateLogs('defence', player1, player2);
+  generateLogs('defence', player2, player1);
 }
   if(enemy.defence !== player.hit) {
     player2.changeHP(player.value);
     player2.renderHP();
     generateLogs('hit', player1, player2, player.value);
   } else {
-    generateLogs('defence', player2, player1);
+    generateLogs('defence', player1, player2);
   }
   showResult();
 //    console.log(player.value + ' ' + player1.hp);

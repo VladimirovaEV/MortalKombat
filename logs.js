@@ -69,6 +69,7 @@ export function generateLogs(type, attacker, defender, damage) {
     break;
     default:
     alert('Что-то пошло не так...');
+    break;
   }
     $chat.insertAdjacentHTML('afterbegin', el);
 }
