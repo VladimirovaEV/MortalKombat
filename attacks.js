@@ -72,3 +72,4 @@ export const HIT = {
 //   console.log(player.value + ' ' + player1.hp);
 //   console.log(enemy.value + ' ' + player2.hp);
  })
+
