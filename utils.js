@@ -38,3 +38,4 @@ export const createReloadButton = () => {
     window.location.reload();
   })
 }
+
