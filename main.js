@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const $arenas = document.querySelector('.arenas');
 const $randomButton = document.querySelector('.button');
 const $formFight = document.querySelector('.control');
@@ -92,6 +93,17 @@ function createElement(tag, className) {
 }
 
 function createPlayer(player) {
+=======
+import { getRandom, addZero, createElement, playerWin, createReloadButton, $arenas, $randomButton } from './utils.js';
+import { logs, generateLogs, $chat } from './logs.js';
+import { HIT, ATTACK, enemyAttack, playerAttack, $formFight, showResult } from './attacks.js';
+import { Game } from './game.js';
+
+const game = new Game();
+game.init();
+
+/*const createPlayer = (player) => {
+>>>>>>> Stashed changes
   const $player1 = createElement('div', 'player'+ player.player);
   const $progressbar = createElement('div','progressbar');
   $player1.appendChild($progressbar);
@@ -112,6 +124,7 @@ function createPlayer(player) {
   $character.appendChild($img);
 
   return $player1;
+<<<<<<< Updated upstream
 }
 
 function changeHP(num) {
@@ -178,6 +191,11 @@ function playerAttack() {
   return attack;
 }
 function showResult() {
+=======
+}*/
+
+/*const showResult = () => {
+>>>>>>> Stashed changes
   if(player1.hp === 0 || player2.hp === 0) {
     $randomButton.disabled = true;
     createReloadButton();
@@ -245,7 +263,20 @@ $formFight.addEventListener('submit', function(e) {
     generateLogs('defence', player2, player1);
   }
   showResult();
+<<<<<<< Updated upstream
 //  console.log(enemy.value);
 //  console.log(player.value);
 
 })
+=======
+//    console.log(player.value + ' ' + player1.hp);
+//   console.log(enemy.value + ' ' + player2.hp);
+})*/
+
+/*const init = () => {
+  $arenas.appendChild(createPlayer(player1));
+  $arenas.appendChild(createPlayer(player2));
+  generateLogs('start', player1, player2);
+}
+init();*/
+>>>>>>> Stashed changes
