@@ -1,4 +1,4 @@
-import { Player, player1, player2, createPlayer } from './players.js';
+import { Player } from './players.js';
 
 export const $arenas = document.querySelector('.arenas');
 export const $randomButton = document.querySelector('.button');
@@ -38,4 +38,3 @@ export const createReloadButton = () => {
     window.location.reload();
   })
 }
-
