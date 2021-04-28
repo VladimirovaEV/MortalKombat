@@ -1,4 +1,11 @@
+import { Player, player1, player2, createPlayer } from './players.js';
+
 export const $arenas = document.querySelector('.arenas');
+export const $randomButton = document.querySelector('.button');
+export const getTime = () => {
+  const date = new Date();
+  return `${addZero(date.getHours())}:${addZero(date.getMinutes())}:${addZero(date.getSeconds())}`;
+}
 
 export const getRandom = (num) => Math.ceil(Math.random() * num);
 
@@ -31,3 +38,4 @@ export const createReloadButton = () => {
     window.location.reload();
   })
 }
+
